@@ -13,7 +13,7 @@ function ArticleDetail() {
 
   useEffect(() => {
     if (article) {
-      fetch(`/src/content/${article.file}`)
+      fetch(`/content/${article.file}`)
         .then((res) => res.text())
         .then((text) => setContent(text));
     }
