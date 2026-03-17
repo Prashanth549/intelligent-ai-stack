@@ -4,8 +4,6 @@ import ReactMarkdown from "react-markdown";
 import { articles } from "../data/articles";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
-import { Helmet } from "react-helmet-async";
-
 
 
 function ArticleDetail() {
@@ -21,6 +19,9 @@ function ArticleDetail() {
       fetch(`/content/${article.file}`)
         .then((res) => res.text())
         .then((text) => setContent(text));
+
+      document.title = `${article.title} | Intelligent AI Stack`;
+
     }
   }, [article]);
 
@@ -29,13 +30,7 @@ function ArticleDetail() {
   }
 
   return (
-
-    <>
-    
-    <Helmet>
-        <title>{article.title} | Intelligent AI Stack</title>
-        <meta name="description" content={article.description} />
-        </Helmet> 
+ 
    
     <div className="bg-black text-white min-h-screen bg-gradient-to-b from-black to-gray-950 flex flex-col">
 
@@ -63,7 +58,7 @@ function ArticleDetail() {
       <Footer />
 
     </div>
-    </>
+    
   );
 }
 
