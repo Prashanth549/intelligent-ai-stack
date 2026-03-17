@@ -13,7 +13,7 @@ function Navbar() {
         <a href="#">AI in SaaS</a>
         <a href="#">AI Systems</a>
         <a href="#">Case Studies</a>
-        <a href="#">Newsletter</a>
+        <Link to="/about">About</Link>
       </div>
       </div>
     </nav>
