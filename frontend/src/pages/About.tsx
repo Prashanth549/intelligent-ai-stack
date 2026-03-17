@@ -16,15 +16,15 @@ function About() {
           </h1>
 
           <p className="text-gray-400 leading-relaxed mb-6">
-            Intelligent AI Stack is a platform focused on understanding how artificial intelligence is being integrated into modern SaaS products and business systems.
+            Intelligent AI Stack is a platform focused on understanding how artificial intelligence is being applied across software systems, data platforms, and real-world business operations.
           </p>
 
           <p className="text-gray-400 leading-relaxed mb-6">
-            The goal is to explore how software is evolving from systems that store data to systems that assist in decision-making.
+            The goal is to explore how software is evolving from systems that store data to systems that assist in analysis, decision-making, and execution.
           </p>
 
           <p className="text-gray-400 leading-relaxed">
-            This space is used to document insights, break down concepts, and analyze real-world applications of AI in software.
+            This includes areas such as SaaS platforms, data systems, and operational workflows, where AI is becoming a core layer of functionality.
           </p>
 
         </div>
