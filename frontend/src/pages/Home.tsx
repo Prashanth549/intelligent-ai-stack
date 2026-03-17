@@ -4,6 +4,7 @@ import ArticleCard from "../components/ArticleCard";
 import { articles } from "../data/articles";
 import Footer from "../components/Footer";
 import { Link } from "react-router-dom";
+import { Helmet } from "react-helmet-async";
 
 function Home() {
 
@@ -19,6 +20,14 @@ function Home() {
     <div className="bg-black text-white min-h-screen bg-gradient-to-b from-black to-gray-950 flex flex-col">
 
       <Navbar />
+
+      <Helmet>
+      <title>Intelligent AI Stack | AI in SaaS, Data & Systems</title>
+      <meta
+        name="description"
+        content="Exploring how AI is applied across SaaS platforms, data systems, and real-world applications."
+        />
+      </Helmet>
 
       {/* Main Content */}
       <div className="flex-grow pt-20">

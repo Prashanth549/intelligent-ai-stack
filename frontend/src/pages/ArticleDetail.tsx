@@ -4,12 +4,17 @@ import ReactMarkdown from "react-markdown";
 import { articles } from "../data/articles";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
+import { Helmet } from "react-helmet-async";
+
+
 
 function ArticleDetail() {
   const { id } = useParams();
   const [content, setContent] = useState("");
 
   const article = articles.find((a) => a.id === id);
+
+  
 
   useEffect(() => {
     if (article) {
@@ -24,9 +29,17 @@ function ArticleDetail() {
   }
 
   return (
+
+   
     <div className="bg-black text-white min-h-screen bg-gradient-to-b from-black to-gray-950 flex flex-col">
 
       <Navbar />
+      
+       <Helmet>
+        <title>{article.title} | Intelligent AI Stack</title>
+        <meta name="description" content={article.description} />
+        </Helmet>
+      
 
       {/* Content */}
       <div className="flex-grow pt-20">
