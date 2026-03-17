@@ -17,41 +17,41 @@ The platform covers:
 * Real-world AI applications
 * System design and architecture
 
-This project was built to combine **technical execution + content strategy**, creating a scalable foundation for a tech-focused publication.
+This project combines technical execution with content strategy, creating a scalable foundation for a tech-focused publication.
 
 ---
 
-## 🧠 Key Features
+## Key Features
 
-* 📰 Dynamic article system (Markdown-based)
-* ⚡ Fast and modern frontend using React + Vite
-* 🎨 Clean UI with Tailwind CSS
-* 🔗 Multi-page routing with React Router
-* 📈 Analytics integration (Vercel Analytics)
-* 🌍 Deployed on Vercel with custom domain
+* Dynamic article system (Markdown-based)
+* Fast and modern frontend using React and Vite
+* Clean UI with Tailwind CSS
+* Multi-page routing with React Router
+* Analytics integration (Vercel Analytics)
+* Deployed on Vercel with a custom domain
 
 ---
 
-## 🏗️ Tech Stack
+## Tech Stack
 
-**Frontend**
+Frontend:
 
 * React (TypeScript)
 * Vite
 
-**Styling**
+Styling:
 
 * Tailwind CSS
 
-**Routing**
+Routing:
 
 * React Router
 
-**Content System**
+Content System:
 
-* Markdown + React Markdown
+* Markdown with React Markdown
 
-**Deployment**
+Deployment:
 
 * Vercel
 
@@ -63,9 +63,9 @@ Articles are written in Markdown and dynamically rendered.
 
 This allows:
 
-* scalable content creation
-* clean separation of code and content
-* easy publishing workflow
+* Scalable content creation
+* Clean separation of code and content
+* Easy publishing workflow
 
 ---
 
@@ -73,32 +73,31 @@ This allows:
 
 This project is designed to:
 
-* explore AI applications in SaaS
-* build a strong understanding of AI-driven systems
-* create a public knowledge platform
-* demonstrate real-world product development skills
+* Explore AI applications in SaaS
+* Build understanding of AI-driven systems
+* Create a public knowledge platform
+* Demonstrate real-world product development skills
 
 ---
 
 ## Future Improvements
 
-* 🔍 Search functionality
-* 🏷️ Categories and tags
-* 📊 Advanced analytics
-* 📬 Newsletter integration
-* 🧠 AI-powered content recommendations
+* Search functionality
+* Categories and tags
+* Advanced analytics
+* Newsletter integration
+* AI-powered content recommendations
 
 ---
 
 ## Author
 
-Built by Prashanth Matangi
+Prashanth Matangi
 
 ---
 
 ## Notes
 
-This is an actively evolving project focused on combining:
+This is an evolving project focused on combining:
 
-> Technology + Content + Real-world Applications
-
+Technology + Content + Real-world Applications
