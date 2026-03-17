@@ -17,17 +17,20 @@ function Home() {
   const featuredArticle = articles.find((a) => a.featured);
 
   return (
-    <div className="bg-black text-white min-h-screen bg-gradient-to-b from-black to-gray-950 flex flex-col">
 
-      <Navbar />
-
-      <Helmet>
+    <>
+    <Helmet>
       <title>Intelligent AI Stack | AI in SaaS, Data & Systems</title>
       <meta
         name="description"
         content="Exploring how AI is applied across SaaS platforms, data systems, and real-world applications."
         />
       </Helmet>
+    <div className="bg-black text-white min-h-screen bg-gradient-to-b from-black to-gray-950 flex flex-col">
+
+      <Navbar />
+
+      
 
       {/* Main Content */}
       <div className="flex-grow pt-20">
@@ -87,6 +90,7 @@ function Home() {
       <Footer />
 
     </div>
+    </>
   );
 }
 

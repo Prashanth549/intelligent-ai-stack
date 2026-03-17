@@ -30,15 +30,18 @@ function ArticleDetail() {
 
   return (
 
+    <>
+    
+    <Helmet>
+        <title>{article.title} | Intelligent AI Stack</title>
+        <meta name="description" content={article.description} />
+        </Helmet> 
    
     <div className="bg-black text-white min-h-screen bg-gradient-to-b from-black to-gray-950 flex flex-col">
 
       <Navbar />
-      
-       <Helmet>
-        <title>{article.title} | Intelligent AI Stack</title>
-        <meta name="description" content={article.description} />
-        </Helmet>
+
+       
       
 
       {/* Content */}
@@ -55,9 +58,12 @@ function ArticleDetail() {
 
       </div>
 
+      
+
       <Footer />
 
     </div>
+    </>
   );
 }
 
