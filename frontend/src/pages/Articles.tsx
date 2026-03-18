@@ -23,13 +23,21 @@ function Articles() {
             All Articles
           </h1>
 
-          <div className="grid md:grid-cols-2 gap-6">
+          <p className="text-gray-400 mb-10 max-w-2xl">
+          A collection of articles exploring AI across software systems, SaaS platforms, and real-world applications.
+        </p>
+
+          <div className="grid md:grid-cols-2 gap-8">
             {sortedArticles.map((article) => (
               <ArticleCard
                 key={article.id}
                 id={article.id}
                 title={article.title}
                 description={article.description}
+                category={article.category}
+                date={article.date}
+                readTime={article.readTime}
+                
               />
             ))}
           </div>

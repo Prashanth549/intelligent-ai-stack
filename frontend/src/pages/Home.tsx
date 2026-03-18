@@ -4,20 +4,33 @@ import ArticleCard from "../components/ArticleCard";
 import { articles } from "../data/articles";
 import Footer from "../components/Footer";
 import { Link } from "react-router-dom";
+import { useState } from "react";
 
 
 function Home() {
 
-  // Sort articles by date (latest first)
-  const sortedArticles = [...articles].sort(
+
+   // Sort articles by date (latest first)
+  {/* const sortedArticles = [...articles].sort(
     (a, b) => new Date(b.date).getTime() - new Date(a.date).getTime()
-  );
+  ); */}
+ 
+
+ 
 
   // Get featured article
   const featuredArticle = articles.find((a) => a.featured);
 
-  return (
+  const [selectedCategory, setSelectedCategory] = useState("All");
 
+  const categories = ["All", "AI in SaaS", "AI Systems", "Data & Analytics"];
+
+   const filteredArticles =
+    selectedCategory === "All"
+    ? articles
+    : articles.filter((a) => a.category === selectedCategory);
+
+  return (
    
     <div className="bg-black text-white min-h-screen bg-gradient-to-b from-black to-gray-950 flex flex-col">
 
@@ -33,45 +46,86 @@ function Home() {
 
         {/* Featured Article */}
         {featuredArticle && (
-         <section className="max-w-5xl mx-auto px-6 mb-16">
+          <section className="max-w-5xl mx-auto px-6 mb-20">
 
-        <p className="text-sm text-gray-500 mb-4 uppercase tracking-wide">
-          Featured
-        </p>
+          <p className="text-xs text-gray-500 mb-3 uppercase tracking-widest">
+            Featured
+          </p>
 
-        <Link to={`/article/${featuredArticle.id}`} className="block group">
+          <Link to={`/article/${featuredArticle.id}`}>
 
-          <div className="border border-gray-800 p-8 rounded-2xl transition duration-300 hover:border-gray-500 hover:bg-gray-900/40">
+            <div className="border border-gray-800 p-10 rounded-2xl hover:border-gray-600 transition duration-300 bg-gradient-to-b from-gray-900/40 to-black cursor-pointer">
 
-            <h2 className="text-2xl font-semibold mb-3 group-hover:text-white">
-              {featuredArticle.title}
-            </h2>
+              <h2 className="text-3xl font-semibold mb-4 leading-snug">
+                {featuredArticle.title}
+              </h2>
 
-            <p className="text-gray-400">
-              {featuredArticle.description}
-            </p>
+              <p className="text-gray-400 mb-6 max-w-2xl">
+                {featuredArticle.description}
+              </p>
+
+              <span className="text-sm text-white border-b border-gray-600 hover:border-white transition">
+                Read Article →
+              </span>
+
+            </div>
+
+          </Link>
+
+        </section>
+        )}
+
+{/* Category UI */}
+        <section className="max-w-5xl mx-auto px-6 mb-16">
+
+          <p className="text-xs text-gray-500 mb-6 uppercase tracking-widest">
+            Categories
+          </p>
+
+          <div className="flex flex-wrap gap-3">
+
+            {categories.map((cat) => (
+              <button
+                key={cat}
+                onClick={() => setSelectedCategory(cat)}
+                className={`px-4 py-2 text-sm rounded-full border transition
+                  ${
+                    selectedCategory === cat
+                      ? "border-white text-white"
+                      : "border-gray-800 text-gray-400 hover:border-gray-500"
+                  }`}
+              >
+              {cat} (
+                {cat === "All"
+                  ? articles.length
+                  : articles.filter(a => a.category === cat).length}
+              )
+              </button>
+            ))}
+
+            
 
           </div>
 
-        </Link>
-
-      </section>
-        )}
+        </section>
 
         {/* Latest Articles */}
-        <section className="max-w-5xl mx-auto px-6 pb-24">
+        <section className="max-w-5xl mx-auto px-6 pb-28">
 
-          <p className="text-sm text-gray-500 mb-4 uppercase tracking-wide">
+          <p className="text-xs text-gray-500 mb-6 uppercase tracking-widest">
             Latest Articles
           </p>
 
-          <div className="grid md:grid-cols-2 gap-6 auto-rows-fr">
-            {sortedArticles.map((article) => (
+          <div className="grid md:grid-cols-2 gap-8 auto-rows-fr">
+            {filteredArticles.map((article) => (
               <ArticleCard
                 key={article.id}
                 id={article.id}
                 title={article.title}
                 description={article.description}
+                category={article.category}
+                date={article.date}
+                readTime={article.readTime} 
               />
             ))}
           </div>
