@@ -1,84 +1,59 @@
 import { Link } from "react-router-dom";
+import { useState } from "react";
 
 const navItemClass =
   "relative group text-sm tracking-wide text-gray-400 hover:text-white transition";
 
 function Navbar() {
+  const [menuOpen, setMenuOpen] = useState(false);
+
+  const handleNavClick = () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+    setMenuOpen(false); // close menu on click
+  };
+
   return (
     <nav className="fixed top-0 left-0 w-full z-50 bg-black/80 backdrop-blur-md border-b border-gray-800">
       
-      <div className="flex justify-between items-center px-8 py-4 max-w-5xl mx-auto">
+      <div className="flex justify-between items-center px-6 py-4 max-w-6xl mx-auto">
 
         {/* Logo */}
-        <Link
-          to="/"
-          onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-        >
+        <Link to="/" onClick={handleNavClick}>
           <h1 className="text-lg font-semibold tracking-tight text-white">
             Intelligent AI Stack
           </h1>
         </Link>
 
-        {/* Nav Links */}
-        <div className="flex items-center space-x-8">
-
-          <Link
-            to="/"
-            onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-            className={navItemClass}
-          >
-            Home
-            <span className="absolute left-0 -bottom-1 w-0 h-[1px] bg-white transition-all duration-300 group-hover:w-full"></span>
-          </Link>
-
-          <Link
-            to="/articles"
-            onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-            className={navItemClass}
-          >
-            Articles
-            <span className="absolute left-0 -bottom-1 w-0 h-[1px] bg-white transition-all duration-300 group-hover:w-full"></span>
-          </Link>
-
-          <a
-            href="#"
-            onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-            className={navItemClass}
-          >
-            AI in SaaS
-            <span className="absolute left-0 -bottom-1 w-0 h-[1px] bg-white transition-all duration-300 group-hover:w-full"></span>
-          </a>
-
-          <a
-            href="#"
-            onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-            className={navItemClass}
-          >
-            AI Systems
-            <span className="absolute left-0 -bottom-1 w-0 h-[1px] bg-white transition-all duration-300 group-hover:w-full"></span>
-          </a>
-
-          <a
-            href="#"
-            onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-            className={navItemClass}
-          >
-            Case Studies
-            <span className="absolute left-0 -bottom-1 w-0 h-[1px] bg-white transition-all duration-300 group-hover:w-full"></span>
-          </a>
-
-          <Link
-            to="/about"
-            onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-            className={navItemClass}
-          >
-            About
-            <span className="absolute left-0 -bottom-1 w-0 h-[1px] bg-white transition-all duration-300 group-hover:w-full"></span>
-          </Link>
-
+        {/* Desktop Menu */}
+        <div className="hidden md:flex items-center space-x-8">
+          <Link to="/" onClick={handleNavClick} className={navItemClass}>Home</Link>
+          <Link to="/articles" onClick={handleNavClick} className={navItemClass}>Articles</Link>
+          <a href="#" className={navItemClass}>AI in SaaS</a>
+          <a href="#" className={navItemClass}>AI Systems</a>
+          <a href="#" className={navItemClass}>Case Studies</a>
+          <Link to="/about" onClick={handleNavClick} className={navItemClass}>About</Link>
         </div>
 
+        {/* Hamburger Icon */}
+        <button
+          className="md:hidden text-white text-2xl"
+          onClick={() => setMenuOpen(!menuOpen)}
+        >
+          ☰
+        </button>
       </div>
+
+      {/* Mobile Menu */}
+      {menuOpen && (
+        <div className="md:hidden bg-black border-t border-gray-800 px-6 py-4 space-y-4">
+          <Link to="/" onClick={handleNavClick} className="block text-gray-300 hover:text-white">Home</Link>
+          <Link to="/articles" onClick={handleNavClick} className="block text-gray-300 hover:text-white">Articles</Link>
+          <a href="#" className="block text-gray-300 hover:text-white">AI in SaaS</a>
+          <a href="#" className="block text-gray-300 hover:text-white">AI Systems</a>
+          <a href="#" className="block text-gray-300 hover:text-white">Case Studies</a>
+          <Link to="/about" onClick={handleNavClick} className="block text-gray-300 hover:text-white">About</Link>
+        </div>
+      )}
     </nav>
   );
 }

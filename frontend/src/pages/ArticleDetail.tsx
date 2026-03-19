@@ -5,6 +5,7 @@ import { articles } from "../data/articles";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import ArticleCard from "../components/ArticleCard";
+import TableOfContents from "../components/article/TableOfContents";
 
 function ArticleDetail() {
   const { id } = useParams();
@@ -12,7 +13,7 @@ function ArticleDetail() {
 
   const article = articles.find((a) => a.id === id);
 
-  // ✅ Safe related articles logic (category-based + fallback)
+  // Related articles
   const relatedArticles = article
     ? articles
         .filter(
@@ -29,20 +30,22 @@ function ArticleDetail() {
       : relatedArticles;
 
   useEffect(() => {
-    if (article) {
+    if (!article) return;
+
+    // Fetch markdown ONLY if no custom component
+    if (!article.component && article.file) {
       fetch(`/content/${article.file}`)
         .then((res) => res.text())
         .then((text) => setContent(text));
+    }
 
-      document.title = `${article.title} | Intelligent AI Stack`;
+    // Update title
+    document.title = `${article.title} | Intelligent AI Stack`;
 
-      // Optional: update meta description
-      const meta = document.querySelector("meta[name='description']");
-      if (meta) {
-        meta.setAttribute("content", article.description);
-      }
-
-       
+    // Update meta description
+    const meta = document.querySelector("meta[name='description']");
+    if (meta) {
+      meta.setAttribute("content", article.description);
     }
   }, [article]);
 
@@ -50,44 +53,69 @@ function ArticleDetail() {
     return <div className="text-white p-10">Article not found</div>;
   }
 
+  // Dynamic component rendering
+  const CustomComponent = article.component;
+
   return (
     <div className="bg-black text-white min-h-screen bg-gradient-to-b from-black to-gray-950 flex flex-col">
-
+      
       <Navbar />
 
-      {/* Content */}
-      <div className="flex-grow pt-20">
+      {/* Content + TOC Layout */}
+      <div className="flex-grow pt-10">
 
-        <div className="max-w-3xl mx-auto px-6 py-10">
+        <div className="max-w-6xl mx-auto px-6 flex gap-12">
 
-          {/* Title */}
-          <h1 className="text-4xl font-bold mb-4 leading-tight">
-            {article.title}
-          </h1>
+          {/* LEFT TOC (Dynamic) */}
+          {article.toc && (
+            <TableOfContents sections={article.toc} />
+          )}
 
-          {/* Metadata */}
-          <div className="text-sm text-gray-500 mb-8 flex items-center gap-4 flex-wrap">
-            <span>{article.date}</span>
-            <span className="text-gray-600">•</span>
-            <span>{article.readTime}</span>
-            <span className="text-gray-600">•</span>
-            <span className="uppercase tracking-wide">{article.category}</span>
+          {/* ARTICLE CONTENT */}
+          <div className="flex-1">
+
+            {CustomComponent ? (
+              // 🔥 Custom React Article
+              <CustomComponent />
+            ) : (
+              // 📄 Markdown fallback
+              <div className="max-w-3xl mx-auto py-10">
+
+                {/* Title */}
+                <h1 className="text-4xl font-bold mb-4 leading-tight">
+                  {article.title}
+                </h1>
+
+                {/* Metadata */}
+                <div className="text-sm text-gray-500 mb-6 flex items-center gap-4 flex-wrap">
+                  <span>{article.date}</span>
+                  <span className="text-gray-600">•</span>
+                  <span>{article.readTime}</span>
+                  <span className="text-gray-600">•</span>
+                  <span className="uppercase tracking-wide">
+                    {article.category}
+                  </span>
+                </div>
+
+                {/* Markdown Content */}
+                <article className="prose prose-invert prose-lg max-w-none">
+                  <ReactMarkdown>{content}</ReactMarkdown>
+                </article>
+
+              </div>
+            )}
+
           </div>
-
-          {/* Article Content */}
-          <article className="prose prose-invert prose-lg max-w-none">
-            <ReactMarkdown>{content}</ReactMarkdown>
-          </article>
 
         </div>
 
       </div>
 
       {/* Divider */}
-      <div className="border-t border-gray-900 my-16"></div>
+      <div className="border-t border-gray-900 my-6"></div>
 
       {/* Related Articles */}
-      <div className="max-w-5xl mx-auto px-6 pb-24">
+      <div className="max-w-3xl mx-auto px-6 pb-12 mt-6">
 
         {fallbackArticles.length > 0 && (
           <>
