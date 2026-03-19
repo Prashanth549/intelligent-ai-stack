@@ -64,7 +64,7 @@ function ArticleDetail() {
       {/* Content + TOC Layout */}
       <div className="flex-grow pt-10">
 
-        <div className="max-w-6xl mx-auto px-6 flex gap-12">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 flex flex-col lg:flex-row gap-8 lg:gap-12">
 
           {/* LEFT TOC (Dynamic) */}
           {article.toc && (
