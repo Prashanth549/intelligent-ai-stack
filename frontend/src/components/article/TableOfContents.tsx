@@ -38,8 +38,9 @@ function TableOfContents({ sections }: Props) {
   }, [sections]);
 
   return (
-    <div className="hidden lg:block w-56 shrink-0 sticky top-24 h-fit text-sm text-gray-400">
 
+<div className="hidden lg:block w-56 shrink-0 sticky top-20 self-start h-fit text-sm text-gray-400">
+  
       <p className="text-xs uppercase tracking-widest mb-4 text-gray-500">
         On this page
       </p>

@@ -57,12 +57,12 @@ function ArticleDetail() {
   const CustomComponent = article.component;
 
   return (
-    <div className="bg-black text-white min-h-screen overflow-x-hidden bg-gradient-to-b from-black to-gray-950 flex flex-col">
+    <div className="bg-black text-white min-h-screen bg-gradient-to-b from-black to-gray-950 flex flex-col">
       
       <Navbar />
 
       {/* Content + TOC Layout */}
-      <div className="flex-grow pt-20">
+      <div className="pt-20">
 
         <div className="max-w-6xl mx-auto px-4 sm:px-6 flex flex-col lg:flex-row gap-8 lg:gap-12">
 
