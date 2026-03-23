@@ -59,6 +59,7 @@ function AIChat({ context }: Props) {
     setLoading(true);
 
     try {
+      console.log(import.meta.env.VITE_API_URL);
       const res = await fetch(`${import.meta.env.VITE_API_URL}/ask-ai`, {
         method: "POST",
         headers: {
