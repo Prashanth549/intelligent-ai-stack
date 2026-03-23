@@ -27,13 +27,16 @@ function ArticleDetail() {
   // 🔥 Fetch API articles
 useEffect(() => {
   fetch(`${import.meta.env.VITE_API_URL}/articles`)
-    .then((res) => res.json())
+    .then((res) => {
+      if (!res.ok) throw new Error("API failed");
+      return res.json();
+    })
     .then((data) => {
       setApiArticles(data);
       setLoading(false);
     })
     .catch((err) => {
-      console.error("Error fetching articles:", err);
+      console.error("Error:", err);
       setLoading(false);
     });
 }, []);

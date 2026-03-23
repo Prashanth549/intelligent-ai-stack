@@ -234,3 +234,7 @@ async def get_articles():
 
     with open("articles.json", "r") as f:
         return json.load(f)
+
+@app.get("/")
+async def root():
+    return {"message": "AI Stack Backend Running"}

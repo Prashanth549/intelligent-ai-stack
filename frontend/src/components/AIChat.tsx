@@ -1,4 +1,8 @@
 import { useState,  useRef } from "react";
+const API_URL = import.meta.env.VITE_API_URL;
+
+
+console.log("API URL:", API_URL); // Debugging line to check the API URL  
 
 type Message = {
   role: "user" | "ai";
@@ -60,7 +64,7 @@ function AIChat({ context }: Props) {
 
     try {
       console.log(import.meta.env.VITE_API_URL);
-      const res = await fetch(`${import.meta.env.VITE_API_URL}/ask-ai`, {
+      const res = await fetch(`${API_URL}/ask-ai`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
