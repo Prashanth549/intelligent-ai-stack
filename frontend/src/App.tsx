@@ -8,6 +8,7 @@ import About from "./pages/About";
 import GenerateArticle from "./pages/GenerateArticle";
 import ScrollToTop from "@/components/ScrollToTop";
 import ProtectedRoute from "@/routes/ProtectedRoute";
+import AdminLogin from "./pages/AdminLogin";
 
 function App() {
   const location = useLocation(); // 🔥 CRITICAL
@@ -22,8 +23,9 @@ function App() {
           <Route path="/articles" element={<Articles />} />
           <Route path="/article/:id" element={<ArticleDetail />} />
           <Route path="/about" element={<About />} />
+          <Route path="/admin/login" element={<AdminLogin />} />
           <Route
-          path="/admin/generate"
+          path="/admin/generate-8392"
           element={
             <ProtectedRoute>
               <GenerateArticle />
