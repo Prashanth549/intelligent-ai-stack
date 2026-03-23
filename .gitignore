@@ -145,3 +145,7 @@ Thumbs.db
 # Python (for backend later)
 __pycache__/
 *.pyc
+
+
+
+venv/

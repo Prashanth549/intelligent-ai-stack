@@ -1,12 +1,33 @@
-import { articles } from "../data/articles";
 import ArticleCard from "../components/ArticleCard";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
+import { useEffect, useState } from "react";
+import { staticArticles } from "@/data/articles"; // ✅ your existing file
 
 function Articles() {
+  const [apiArticles, setApiArticles] = useState<any[]>([]);
 
-  // Sort by latest first
-  const sortedArticles = [...articles].sort(
+  useEffect(() => {
+    fetch("http://127.0.0.1:8000/articles")
+      .then((res) => res.json())
+      .then((data) => setApiArticles(data));
+  }, []);
+
+  useEffect(() => {
+    document.title = "All Articles | Intelligent AI Stack";
+  }, []);
+
+  // 🔥 MERGE BOTH
+  const mergedArticles = [...staticArticles, ...apiArticles];
+
+  // 🔥 REMOVE DUPLICATES (important)
+  const uniqueArticles = mergedArticles.filter(
+    (article, index, self) =>
+      index === self.findIndex((a) => a.id === article.id)
+  );
+
+  // 🔥 SORT
+  const sortedArticles = uniqueArticles.sort(
     (a, b) => new Date(b.date).getTime() - new Date(a.date).getTime()
   );
 
@@ -24,8 +45,8 @@ function Articles() {
           </h1>
 
           <p className="text-gray-400 mb-10 max-w-2xl">
-          A collection of articles exploring AI across software systems, SaaS platforms, and real-world applications.
-        </p>
+            A collection of articles exploring AI across software systems, SaaS platforms, and real-world applications.
+          </p>
 
           <div className="grid md:grid-cols-2 gap-8">
             {sortedArticles.map((article) => (
@@ -37,7 +58,6 @@ function Articles() {
                 category={article.category}
                 date={article.date}
                 readTime={article.readTime}
-                
               />
             ))}
           </div>

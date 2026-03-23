@@ -7,7 +7,14 @@ import ArticleHighlight from "@/components/article/ArticleHighlight";
 import ArticleImage from "@/components/article/ArticleImage";
 import AnimatedSection from "@/components/article/AnimatedSection";
 
+
+
+
 function Article1() {
+
+
+
+  
   return (
     <ArticleContainer>
 
@@ -329,7 +336,7 @@ function Article1() {
 
       {/* Section 8 */}
       <AnimatedSection>
-        <ArticleSection title="What This Newsletter Will Explore" />
+        <ArticleSection  id = "next-steps"title="What This Newsletter Will Explore" />
 
         <ArticleText>
           The AI SaaS Playbook will examine how artificial intelligence is being integrated into SaaS products and software businesses.

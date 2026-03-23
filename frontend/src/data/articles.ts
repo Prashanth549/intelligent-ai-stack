@@ -1,11 +1,14 @@
 import Article1 from "@/pages/articles/Article1";
 import Article2 from "@/pages/articles/Article2";
 import type { Article } from "@/types/article";
+ 
 
-export const articles: Article[] = [
+export const staticArticles: Article[] = [
+
+
   {
     id: "ai-saas-evolution",
-    title: "The Next Evolution of SaaS: Intelligence Built Into Software",
+    title: "The Next Evolution of SaaS",
     description: "How AI is beginning to reshape SaaS platforms.",
     component: Article1, // ✅ custom
     category: "AI in SaaS",
@@ -20,9 +23,26 @@ export const articles: Article[] = [
   { id: "why-saas", label: "Why SaaS + AI" },
   { id: "product-design", label: "Product Design" },
   { id: "business-impact", label: "Business Impact" },
+  { id: "limitations", label: "Limitations" },
+  { id: "next-steps", label: "Newsletter" },
   { id: "final-thought", label: "Final Thought" },
+
 ],
+aiContext: `
+Software-as-a-Service fundamentally changed how organizations adopt and use software...
+
+AI introduces an intelligence layer...
+
+Key capabilities include:
+- automated analysis
+- predictive insights
+- workflow automation
+
+AI shifts SaaS from systems of record to systems of insight.
+`,
   },
+
+  
   {
     id: "ai-copilots",
     title: "AI Copilots in SaaS",
@@ -34,12 +54,42 @@ export const articles: Article[] = [
     readTime: "5 min read",
     toc: [
   { id: "intro", label: "Introduction" },
-  { id: "shift-in-interaction", label: "Shift in Interaction" },
-  { id: "what-copilots-do", label: "What Copilots Do" },
-  { id: "why-it-matters", label: "Why It Matters" },
+  { id: "shift-in-interaction", label: "From Navigation to Intent" },
+  { id: "what-copilots-do", label: "What Is an AI Copilot?" },
+  { id: "architecture", label: "Architecture" },
+  { id: "the-copilot-loop", label: "The Copilot Loop" },
+  { id: "why-it-matters", label: "Why Copilots Matter" },
+  { id: "real-world-applications", label: "Applications" },
+  { id: "building-your-own-copilot", label: "Building a Copilot" },
   { id: "limitations", label: "Limitations" },
-  { id: "future", label: "Where This Is Heading" },
-  { id: "final-thought", label: "Final Thought" },
+  { id: "future", label: "Where This Is Heading" }
+
 ],
+
+
+aiContext: `
+AI copilots act as an orchestration layer on top of SaaS systems.
+
+They:
+- interpret intent
+- retrieve relevant data (RAG)
+- reason using models
+- execute workflows
+
+Architecture:
+Interface → Reasoning → Context → Action
+
+Copilot loop:
+Intent → Understand → Retrieve → Reason → Act → Respond
+
+Key idea:
+Copilots reduce the gap between intent and execution.
+`
   },
+
+
 ];
+
+
+
+

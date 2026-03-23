@@ -8,6 +8,8 @@ export type Article = {
   featured: boolean;
   date: string;
   readTime: string;
+  aiContext?: string;
+  
 
   toc?: {
     id: string;

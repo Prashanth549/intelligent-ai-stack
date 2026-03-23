@@ -1,7 +1,16 @@
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
+import { useEffect } from "react";
+
+
 
 function About() {
+
+
+    useEffect(() => {
+    document.title = "About | Intelligent AI Stack";
+  }, []);
+  
   return (
     <div className="bg-black text-white min-h-screen flex flex-col bg-gradient-to-b from-black to-gray-950">
 

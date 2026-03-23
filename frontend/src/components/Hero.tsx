@@ -1,6 +1,7 @@
 function Hero() {
   return (
-      <section className="max-w-5xl mx-auto px-6 py-24">
+    <> 
+      <section className="max-w-5xl mx-auto px-6 py-12">
 
       <p className="text-sm text-gray-500 mb-4 uppercase tracking-wide">
         AI + SaaS + Real World Applications
@@ -16,6 +17,11 @@ function Hero() {
       </p>
 
     </section>
+
+
+  
+</>
+
   );
 }
 
