@@ -12,7 +12,7 @@ function Home() {
 
   // 🔥 Fetch AI articles
   useEffect(() => {
-    fetch("http://127.0.0.1:8000/articles")
+    fetch(`${import.meta.env.VITE_API_URL}/articles`)
       .then((res) => res.json())
       .then((data) => setApiArticles(data));
   }, []);
