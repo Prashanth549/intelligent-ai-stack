@@ -1,5 +1,6 @@
 import Article1 from "@/pages/articles/Article1";
 import Article2 from "@/pages/articles/Article2";
+import Article3 from "@/pages/articles/Article3";
 import type { Article } from "@/types/article";
  
 
@@ -86,6 +87,43 @@ Key idea:
 Copilots reduce the gap between intent and execution.
 `
   },
+
+
+  {
+  id: "ai-system-architecture",
+  title: "From Prompt to Production",
+  description: "Understanding the real architecture behind AI systems.",
+  component: Article3,
+  category: "AI Systems",
+  featured: true,
+  date: "March 2026",
+  readTime: "6 min read",
+  toc: [
+    { id: "intro", label: "Introduction" },
+    { id: "misconception", label: "Misconception" },
+    { id: "ai-stack", label: "AI Stack" },
+    { id: "layers", label: "System Layers" },
+    { id: "flow", label: "System Flow" },
+    { id: "example", label: "Example" },
+    { id: "mistakes", label: "Mistakes" },
+    { id: "future", label: "Future" },
+    { id: "final-thought", label: "Final Thought" },
+  ],
+  aiContext: `
+AI systems are not just prompts.
+
+They consist of multiple layers:
+- interface
+- backend
+- orchestration
+- context (RAG)
+- model
+- memory
+- data
+
+The value lies in how these layers work together.
+`,
+}
 
 
 ];
