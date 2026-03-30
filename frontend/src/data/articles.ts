@@ -89,24 +89,27 @@ Copilots reduce the gap between intent and execution.
   },
 
 
-  {
+{
   id: "ai-system-architecture",
   title: "From Prompt to Production",
-  description: "Understanding the real architecture behind AI systems.",
+  description: "Understanding how real AI systems are designed and built.",
   component: Article3,
   category: "AI Systems",
   featured: true,
   date: "March 2026",
-  readTime: "6 min read",
+  readTime: "7 min read",
   toc: [
     { id: "intro", label: "Introduction" },
     { id: "misconception", label: "Misconception" },
+    { id: "product-vs-model", label: "Product vs Model" },
     { id: "ai-stack", label: "AI Stack" },
     { id: "layers", label: "System Layers" },
     { id: "flow", label: "System Flow" },
+    { id: "builder-thinking", label: "Builder Thinking" },
     { id: "example", label: "Example" },
+    { id: "tradeoffs", label: "Trade-offs" },
     { id: "mistakes", label: "Mistakes" },
-    { id: "future", label: "Future" },
+    { id: "agents", label: "Agents" },
     { id: "final-thought", label: "Final Thought" },
   ],
   aiContext: `
@@ -121,7 +124,9 @@ They consist of multiple layers:
 - memory
 - data
 
-The value lies in how these layers work together.
+The value of AI lies in how these layers are structured and connected.
+
+A model alone is not a product — system design is what makes AI useful.
 `,
 }
 

@@ -170,24 +170,7 @@ function Home() {
 
       </div>
 
-      <section className="max-w-5xl mx-auto px-6 pb-20 text-center">
 
-        <h3 className="text-2xl font-semibold mb-4">
-          Explore the Future of Software
-        </h3>
-
-        <p className="text-gray-400 mb-6">
-          Dive deeper into how AI is shaping modern SaaS systems and real-world applications.
-        </p>
-
-        <a
-          href="/articles"
-          className="px-6 py-3 bg-white text-black rounded-lg hover:bg-gray-200 transition"
-        >
-          View All Articles
-        </a>
-
-      </section>
 
       <Footer />
 

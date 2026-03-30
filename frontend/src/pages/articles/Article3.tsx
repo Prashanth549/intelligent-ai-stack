@@ -40,12 +40,9 @@ function Article3() {
         </AnimatedSection>
       </div>
 
-      {/* Section 1 */}
+      {/* Misconception */}
       <AnimatedSection>
-        <ArticleSection
-          id="misconception"
-          title="The Biggest Misconception About AI Systems"
-        />
+        <ArticleSection id="misconception" title="The Biggest Misconception About AI Systems" />
 
         <ArticleText>
           A common assumption is that connecting a UI to an AI model creates an AI application.
@@ -64,15 +61,38 @@ function Article3() {
         </ArticleText>
       </AnimatedSection>
 
-      {/* Section 2 */}
+      {/* Product vs Model */}
       <AnimatedSection>
-        <ArticleSection
-          id="ai-stack"
-          title="The Intelligent AI Stack"
-        />
+        <ArticleSection id="product-vs-model" title="What Makes an AI System a Product" />
 
         <ArticleText>
-          Modern AI systems are built as layered architectures, where each layer plays a specific role in delivering intelligence.
+          Many early AI applications fail because they confuse a model with a product.
+        </ArticleText>
+
+        <ArticleText>
+          A model can generate responses, but a product must:
+        </ArticleText>
+
+        <ArticleList
+          items={[
+            "deliver consistent outcomes",
+            "operate reliably under different conditions",
+            "integrate with real data and workflows",
+            "handle errors and edge cases",
+          ]}
+        />
+
+        <ArticleHighlight>
+          The difference between a demo and a product is not intelligence — it is system design.
+        </ArticleHighlight>
+      </AnimatedSection>
+
+      {/* AI Stack */}
+      <AnimatedSection>
+        <ArticleSection id="ai-stack" title="The Intelligent AI Stack" />
+
+        <ArticleText>
+          Modern AI systems are built as layered architectures, where each layer plays a specific role.
         </ArticleText>
 
         <ArticleText>
@@ -80,67 +100,85 @@ function Article3() {
         </ArticleText>
       </AnimatedSection>
 
-      {/* Section 3 */}
+      {/* Layers */}
       <AnimatedSection>
         <ArticleSection id="layers" title="Core Layers of an AI System" />
 
         <ArticleSection title="1. Interface Layer" />
         <ArticleText>
-          Captures user intent through chat interfaces, forms, or APIs.
+          Captures user intent through chat interfaces, APIs, or structured inputs.
         </ArticleText>
 
         <ArticleSection title="2. Application Layer" />
         <ArticleText>
-          Acts as the system backbone, connecting user input with AI capabilities.
+          Acts as the system backbone connecting user input with AI capabilities.
         </ArticleText>
 
         <ArticleText>
-          From a developer’s perspective, this is typically implemented as a backend service. In our approach, we use FastAPI to handle requests, manage sessions, and coordinate system components.
+          From a developer’s perspective, this is implemented as a backend service. In our approach, we use FastAPI to handle requests, manage sessions, and coordinate system components.
         </ArticleText>
 
         <ArticleSection title="3. Orchestration Layer" />
         <ArticleText>
-          Defines how the system thinks — structuring prompts, managing workflows, and coordinating logic across components.
+          This is where the system begins to behave intelligently.
         </ArticleText>
+
+        <ArticleList
+          items={[
+            "structuring prompts dynamically",
+            "deciding which tools or APIs to call",
+            "managing multi-step workflows",
+            "handling fallback and errors",
+          ]}
+        />
+
+        <ArticleHighlight>
+          The model generates responses, but orchestration decides what should happen.
+        </ArticleHighlight>
 
         <ArticleSection title="4. Context Layer (RAG)" />
         <ArticleText>
-          Retrieves relevant data using vector databases, embeddings, and APIs to provide accurate, context-aware responses.
+          This layer enables access to real-time and external data.
         </ArticleText>
 
+        <ArticleList
+          items={[
+            "convert data into embeddings",
+            "store in vector databases",
+            "retrieve relevant context",
+            "inject into prompts",
+          ]}
+        />
+
         <ArticleHighlight>
-          Without context, AI is guessing.
+          Without context, AI is guessing. With context, AI becomes useful.
         </ArticleHighlight>
 
         <ArticleSection title="5. Model Layer" />
         <ArticleText>
-          Handles reasoning and generation using large language models.
+          Handles reasoning and response generation using large language models.
         </ArticleText>
 
         <ArticleSection title="6. Memory Layer" />
         <ArticleText>
-          Stores interactions and enables continuity across sessions.
+          Stores past interactions and enables continuity and personalization.
         </ArticleText>
 
         <ArticleSection title="7. Data Layer" />
         <ArticleText>
-          Provides the foundation through structured and unstructured data, logs, and analytics.
+          Provides structured and unstructured data, logs, and analytics for system improvement.
         </ArticleText>
       </AnimatedSection>
 
-      {/* Section 4 */}
+      {/* Flow */}
       <AnimatedSection>
         <ArticleSection id="flow" title="How an AI System Works" />
-
-        <ArticleText>
-          A typical AI request flows through multiple layers:
-        </ArticleText>
 
         <ArticleList
           items={[
             "User submits input",
             "Backend processes request",
-            "System retrieves relevant context",
+            "System retrieves context",
             "Prompt is constructed",
             "Model generates response",
             "System executes actions",
@@ -149,11 +187,29 @@ function Article3() {
         />
 
         <ArticleText>
-          What appears to be a simple response is actually the result of coordinated system components.
+          What appears simple is actually a coordinated system of multiple layers working together.
         </ArticleText>
       </AnimatedSection>
 
-      {/* Section 5 */}
+      {/* Builder Thinking */}
+      <AnimatedSection>
+        <ArticleSection id="builder-thinking" title="Designing AI Systems: A Builder’s Perspective" />
+
+        <ArticleList
+          items={[
+            "What data does the system need?",
+            "How will the system access that data?",
+            "What actions should the system take?",
+            "How will failures be handled?",
+          ]}
+        />
+
+        <ArticleHighlight>
+          AI systems are not built by adding intelligence. They are built by structuring it.
+        </ArticleHighlight>
+      </AnimatedSection>
+
+      {/* Example */}
       <AnimatedSection>
         <ArticleSection id="example" title="A Real-World Example" />
 
@@ -161,55 +217,66 @@ function Article3() {
           Consider an AI Career Copilot.
         </ArticleText>
 
-        <ArticleText>
-          A user asks: “Which roles am I best suited for?”
-        </ArticleText>
-
         <ArticleList
           items={[
             "Resume is analyzed",
             "Job data is retrieved",
-            "Skills are matched with roles",
+            "Skills matched with roles",
             "AI evaluates fit",
-            "Recommendations are generated",
+            "Recommendations generated",
           ]}
         />
-
-        <ArticleText>
-          This entire process is powered by multiple layers working together.
-        </ArticleText>
       </AnimatedSection>
 
-      {/* Section 6 */}
+      {/* Tradeoffs */}
+      <AnimatedSection>
+        <ArticleSection id="tradeoffs" title="Trade-offs in AI System Design" />
+
+        <ArticleList
+          items={[
+            "Accuracy vs latency",
+            "Cost vs performance",
+            "Flexibility vs control",
+            "Automation vs reliability",
+          ]}
+        />
+      </AnimatedSection>
+
+      {/* Mistakes */}
       <AnimatedSection>
         <ArticleSection id="mistakes" title="Where Most AI Applications Fail" />
 
         <ArticleList
           items={[
             "Over-reliance on prompts",
-            "Lack of context integration",
-            "Poor data quality",
+            "No context layer",
+            "Poor data integration",
             "No execution layer",
-            "Ignoring scalability and cost",
+            "Ignoring cost and scale",
           ]}
         />
 
         <ArticleHighlight>
-          If your AI application is just calling an API, it is a demo — not a product.
+          If your AI app is just calling an API, it is a demo — not a product.
         </ArticleHighlight>
       </AnimatedSection>
 
-      {/* Section 7 */}
+      {/* Agents */}
       <AnimatedSection>
-        <ArticleSection id="future" title="Where This Is Heading" />
+        <ArticleSection id="agents" title="From Assistants to Agents" />
 
-        <ArticleText>
-          AI systems are evolving toward autonomous agents capable of executing workflows and making decisions.
-        </ArticleText>
+        <ArticleList
+          items={[
+            "multi-step planning",
+            "system-to-system interaction",
+            "autonomous execution",
+            "decision-making",
+          ]}
+        />
 
-        <ArticleText>
-          The gap between intent and execution will continue to shrink.
-        </ArticleText>
+        <ArticleHighlight>
+          The evolution of AI is moving from responses to outcomes.
+        </ArticleHighlight>
       </AnimatedSection>
 
       {/* Final */}
@@ -217,11 +284,11 @@ function Article3() {
         <ArticleSection id="final-thought" title="Final Thought" />
 
         <ArticleText>
-          Traditional software required users to navigate systems to achieve outcomes.
+          Traditional software required users to navigate systems.
         </ArticleText>
 
         <ArticleText>
-          Intelligent systems allow users to express intent — and the system handles the rest.
+          Intelligent systems allow users to express intent — and systems handle execution.
         </ArticleText>
 
         <ArticleHighlight>
