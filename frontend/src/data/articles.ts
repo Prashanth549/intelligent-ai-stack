@@ -40,7 +40,7 @@ Key capabilities include:
 - workflow automation
 
 AI shifts SaaS from systems of record to systems of insight.
-`,
+`
   },
 
   
@@ -126,7 +126,7 @@ They consist of multiple layers:
 The value of AI lies in how these layers are structured and connected.
 
 A model alone is not a product — system design is what makes AI useful.
-`,
+`
 }
 
 

@@ -26,7 +26,7 @@ function ArticleDetail() {
 
   // 🔥 Fetch API articles
 useEffect(() => {
-  console.log("API:", import.meta.env.VITE_API_URL);
+  
   fetch(`${import.meta.env.VITE_API_URL}/articles`)
     .then((res) => {
       if (!res.ok) throw new Error("API failed");
