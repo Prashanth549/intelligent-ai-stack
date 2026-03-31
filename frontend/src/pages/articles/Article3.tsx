@@ -10,272 +10,244 @@ function Article3() {
   return (
     <ArticleContainer>
 
-      {/* Title */}
       <ArticleTitle>
-        From Prompt to Production: The Real Architecture Behind AI Systems
+        From Prompt to Production: Understanding the Architecture Behind AI Systems
       </ArticleTitle>
 
       {/* Intro */}
       <div id="intro" className="scroll-mt-12 pt-1">
         <AnimatedSection>
           <ArticleText>
-            In the previous articles, we explored how SaaS is evolving into intelligent systems and how interfaces are shifting toward AI copilots.
+            In the previous articles, we explored how SaaS is evolving into more intelligent systems and how interfaces are gradually shifting toward AI copilots.
           </ArticleText>
 
           <ArticleText>
-            These changes point to a deeper transformation.
+            These shifts suggest a deeper change in how software is being built and used.
           </ArticleText>
 
           <ArticleText>
-            Software is no longer just storing data or displaying information. It is becoming a system that can understand, reason, and act.
+            From the outside, AI systems can appear simple — a prompt goes in, and a response comes out.
           </ArticleText>
 
           <ArticleText>
-            But what actually powers these AI systems behind the scenes?
+            But as you start exploring or building these systems, you begin to see that there are multiple layers working behind the scenes.
           </ArticleText>
 
           <ArticleHighlight>
-            Prompts are not the system. They are only an interface into it.
+            Prompts are often just the entry point — not the system itself.
           </ArticleHighlight>
         </AnimatedSection>
       </div>
 
       {/* Misconception */}
       <AnimatedSection>
-        <ArticleSection id="misconception" title="The Biggest Misconception About AI Systems" />
+        <ArticleSection id="misconception" title="Looking Beyond the Model" />
 
         <ArticleText>
-          A common assumption is that connecting a UI to an AI model creates an AI application.
+          Early on, it’s natural to focus on the model, since that’s where responses are generated.
         </ArticleText>
 
         <ArticleText>
-          In reality, if you remove data, workflows, and system logic, what remains is just a model responding to input.
+          Over time, however, it becomes clear that models rely heavily on surrounding systems to be useful in real-world scenarios.
+        </ArticleText>
+
+        <ArticleText>
+          These systems often include data pipelines, workflows, and application logic.
         </ArticleText>
 
         <ArticleHighlight>
-          A model alone is not a product.
+          A model can generate output, but the system determines how useful that output is.
         </ArticleHighlight>
-
-        <ArticleText>
-          The real value comes from how the model is integrated into a larger system.
-        </ArticleText>
       </AnimatedSection>
 
-      {/* Product vs Model */}
+      {/* Product */}
       <AnimatedSection>
-        <ArticleSection id="product-vs-model" title="What Makes an AI System a Product" />
+        <ArticleSection id="product-vs-model" title="From Model to System" />
 
         <ArticleText>
-          Many early AI applications fail because they confuse a model with a product.
+          As AI applications evolve, there is a gradual shift from experimenting with models to designing systems around them.
         </ArticleText>
 
         <ArticleText>
-          A model can generate responses, but a product must:
+          In practice, this often involves:
         </ArticleText>
 
         <ArticleList
           items={[
-            "deliver consistent outcomes",
-            "operate reliably under different conditions",
-            "integrate with real data and workflows",
-            "handle errors and edge cases",
+            "ensuring consistency across responses",
+            "integrating real-world data",
+            "handling unexpected inputs",
+            "aligning outputs with user workflows",
           ]}
         />
 
         <ArticleHighlight>
-          The difference between a demo and a product is not intelligence — it is system design.
+          The usefulness of an AI application often depends on how well the system is structured around the model.
         </ArticleHighlight>
       </AnimatedSection>
 
-      {/* AI Stack */}
+      {/* Stack */}
       <AnimatedSection>
-        <ArticleSection id="ai-stack" title="The Intelligent AI Stack" />
+        <ArticleSection id="ai-stack" title="A Layered View of AI Systems" />
 
         <ArticleText>
-          Modern AI systems are built as layered architectures, where each layer plays a specific role.
+          One helpful way to understand AI systems is to think of them as layered architectures.
         </ArticleText>
 
         <ArticleText>
-          This layered approach is what we define as the Intelligent AI Stack.
+          Each layer contributes to how the system behaves and how effectively it delivers results.
         </ArticleText>
       </AnimatedSection>
 
       {/* Layers */}
       <AnimatedSection>
-        <ArticleSection id="layers" title="Core Layers of an AI System" />
+        <ArticleSection id="layers" title="Core Layers" />
 
         <ArticleSection title="1. Interface Layer" />
         <ArticleText>
-          Captures user intent through chat interfaces, APIs, or structured inputs.
+          This is where users interact with the system, often through chat interfaces or APIs.
         </ArticleText>
 
         <ArticleSection title="2. Application Layer" />
         <ArticleText>
-          Acts as the system backbone connecting user input with AI capabilities.
+          This layer typically handles requests, manages sessions, and connects different parts of the system.
         </ArticleText>
 
         <ArticleText>
-          From a developer’s perspective, this is implemented as a backend service. In our approach, we use FastAPI to handle requests, manage sessions, and coordinate system components.
+          In our approach, we use FastAPI to structure this layer, though the broader idea is to have a reliable backend coordinating the system.
         </ArticleText>
 
         <ArticleSection title="3. Orchestration Layer" />
         <ArticleText>
-          This is where the system begins to behave intelligently.
+          This layer helps guide how the system responds — including how prompts are structured and how workflows are managed.
         </ArticleText>
 
         <ArticleList
           items={[
-            "structuring prompts dynamically",
-            "deciding which tools or APIs to call",
-            "managing multi-step workflows",
-            "handling fallback and errors",
+            "managing multi-step processes",
+            "deciding which components to use",
+            "handling fallback scenarios",
           ]}
         />
-
-        <ArticleHighlight>
-          The model generates responses, but orchestration decides what should happen.
-        </ArticleHighlight>
 
         <ArticleSection title="4. Context Layer (RAG)" />
         <ArticleText>
-          This layer enables access to real-time and external data.
+          This layer is often responsible for retrieving relevant information from external sources or databases.
         </ArticleText>
 
-        <ArticleList
-          items={[
-            "convert data into embeddings",
-            "store in vector databases",
-            "retrieve relevant context",
-            "inject into prompts",
-          ]}
-        />
+        <ArticleText>
+          It helps ensure that responses are grounded in actual data rather than relying only on the model’s internal knowledge.
+        </ArticleText>
 
         <ArticleHighlight>
-          Without context, AI is guessing. With context, AI becomes useful.
+          Access to the right context can significantly improve the usefulness of AI outputs.
         </ArticleHighlight>
 
         <ArticleSection title="5. Model Layer" />
         <ArticleText>
-          Handles reasoning and response generation using large language models.
+          This is where reasoning and response generation take place using language models.
         </ArticleText>
 
         <ArticleSection title="6. Memory Layer" />
         <ArticleText>
-          Stores past interactions and enables continuity and personalization.
+          This layer can help maintain continuity across interactions and personalize responses over time.
         </ArticleText>
 
         <ArticleSection title="7. Data Layer" />
         <ArticleText>
-          Provides structured and unstructured data, logs, and analytics for system improvement.
+          This forms the foundation, supporting the system with structured and unstructured data.
         </ArticleText>
       </AnimatedSection>
 
       {/* Flow */}
       <AnimatedSection>
-        <ArticleSection id="flow" title="How an AI System Works" />
+        <ArticleSection id="flow" title="A Typical Flow" />
 
         <ArticleList
           items={[
-            "User submits input",
-            "Backend processes request",
-            "System retrieves context",
-            "Prompt is constructed",
+            "User provides input",
+            "System processes the request",
+            "Relevant data is retrieved",
+            "Context is added",
             "Model generates response",
-            "System executes actions",
+            "Optional actions are executed",
             "Interaction is stored",
           ]}
         />
 
         <ArticleText>
-          What appears simple is actually a coordinated system of multiple layers working together.
+          While this process is often invisible to users, each step contributes to the final experience.
         </ArticleText>
       </AnimatedSection>
 
-      {/* Builder Thinking */}
+      {/* Builder */}
       <AnimatedSection>
-        <ArticleSection id="builder-thinking" title="Designing AI Systems: A Builder’s Perspective" />
+        <ArticleSection id="builder-thinking" title="A Builder’s Perspective" />
+
+        <ArticleText>
+          As you start working with these systems, the focus gradually shifts from individual features to overall system design.
+        </ArticleText>
 
         <ArticleList
           items={[
-            "What data does the system need?",
-            "How will the system access that data?",
-            "What actions should the system take?",
-            "How will failures be handled?",
+            "What data is required?",
+            "How will it be accessed?",
+            "What decisions should the system make?",
+            "How should failures be handled?",
           ]}
         />
 
         <ArticleHighlight>
-          AI systems are not built by adding intelligence. They are built by structuring it.
+          Building AI systems often involves organizing intelligence rather than simply adding it.
         </ArticleHighlight>
-      </AnimatedSection>
-
-      {/* Example */}
-      <AnimatedSection>
-        <ArticleSection id="example" title="A Real-World Example" />
-
-        <ArticleText>
-          Consider an AI Career Copilot.
-        </ArticleText>
-
-        <ArticleList
-          items={[
-            "Resume is analyzed",
-            "Job data is retrieved",
-            "Skills matched with roles",
-            "AI evaluates fit",
-            "Recommendations generated",
-          ]}
-        />
       </AnimatedSection>
 
       {/* Tradeoffs */}
       <AnimatedSection>
-        <ArticleSection id="tradeoffs" title="Trade-offs in AI System Design" />
+        <ArticleSection id="tradeoffs" title="Design Trade-offs" />
+
+        <ArticleText>
+          AI systems often involve trade-offs that depend on the use case.
+        </ArticleText>
 
         <ArticleList
           items={[
-            "Accuracy vs latency",
-            "Cost vs performance",
-            "Flexibility vs control",
-            "Automation vs reliability",
+            "accuracy vs latency",
+            "cost vs performance",
+            "flexibility vs control",
+            "automation vs reliability",
           ]}
         />
       </AnimatedSection>
 
       {/* Mistakes */}
       <AnimatedSection>
-        <ArticleSection id="mistakes" title="Where Most AI Applications Fail" />
+        <ArticleSection id="mistakes" title="Common Challenges" />
 
         <ArticleList
           items={[
-            "Over-reliance on prompts",
-            "No context layer",
-            "Poor data integration",
-            "No execution layer",
-            "Ignoring cost and scale",
+            "limited access to relevant data",
+            "over-reliance on prompts",
+            "difficulty handling edge cases",
+            "scaling and cost considerations",
           ]}
         />
-
-        <ArticleHighlight>
-          If your AI app is just calling an API, it is a demo — not a product.
-        </ArticleHighlight>
       </AnimatedSection>
 
-      {/* Agents */}
+      {/* Future */}
       <AnimatedSection>
-        <ArticleSection id="agents" title="From Assistants to Agents" />
+        <ArticleSection id="agents" title="Looking Ahead" />
 
-        <ArticleList
-          items={[
-            "multi-step planning",
-            "system-to-system interaction",
-            "autonomous execution",
-            "decision-making",
-          ]}
-        />
+        <ArticleText>
+          AI systems are gradually moving toward more proactive behavior.
+        </ArticleText>
+
+        <ArticleText>
+          This may include systems that assist with workflows, coordinate tasks, and support decision-making.
+        </ArticleText>
 
         <ArticleHighlight>
-          The evolution of AI is moving from responses to outcomes.
+          The direction seems to be moving from responding to inputs toward helping achieve outcomes.
         </ArticleHighlight>
       </AnimatedSection>
 
@@ -284,15 +256,15 @@ function Article3() {
         <ArticleSection id="final-thought" title="Final Thought" />
 
         <ArticleText>
-          Traditional software required users to navigate systems.
+          Software has traditionally required users to navigate interfaces to get results.
         </ArticleText>
 
         <ArticleText>
-          Intelligent systems allow users to express intent — and systems handle execution.
+          With AI, there is a gradual shift toward expressing intent and letting systems handle more of the process.
         </ArticleText>
 
         <ArticleHighlight>
-          The value of AI is not in the model. It is in the system built around it.
+          The impact of AI may depend less on the model itself, and more on how the surrounding system is designed.
         </ArticleHighlight>
       </AnimatedSection>
 
