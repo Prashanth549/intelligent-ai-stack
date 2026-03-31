@@ -106,7 +106,6 @@ Copilots reduce the gap between intent and execution.
     { id: "layers", label: "System Layers" },
     { id: "flow", label: "System Flow" },
     { id: "builder-thinking", label: "Builder Thinking" },
-    { id: "example", label: "Example" },
     { id: "tradeoffs", label: "Trade-offs" },
     { id: "mistakes", label: "Mistakes" },
     { id: "agents", label: "Agents" },
